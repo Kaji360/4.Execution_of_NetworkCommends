@@ -25,46 +25,50 @@ This commands includes
 <BR>
 • Other IP Commands e.g. show ip route etc.
 <BR>
-##Program
-Client.py
-```py
-import socket
 
-s = socket.socket()
-s.connect(("localhost", 8000))
-
-while True:
-    ip = input("Enter the website you want to ping: ")
-    s.send(ip.encode())
-    print(s.recv(1024).decode())
-```
-Server.py
-```py
-import socket
-from pythonping import ping
-
-s = socket.socket()
-s.bind(("localhost", 8000))
-s.listen(5)
-
-print("Server started...")
-
-c, addr = s.accept()
-print("Connected to", addr)
-
-while True:
-    hostname = c.recv(1024).decode()
-
-    if not hostname:
-        break
-
-    try:
-        result = ping(hostname, verbose=False)
-        c.send(str(result).encode())
-    except Exception:
-        c.send("Not Found".encode())
-```
 ## Output
+### netstat:
+
+<img width="946" height="742" alt="image" src="https://github.com/user-attachments/assets/6960c0a5-b9a2-407d-889e-dd64e2af55eb" />
+
+### ipconfig:
+
+<img width="786" height="742" alt="image" src="https://github.com/user-attachments/assets/9d63f4ea-aa0d-4060-8b27-7f6c880031fd" />
+
+### ping:
+
+<img width="732" height="734" alt="image" src="https://github.com/user-attachments/assets/ad960eb9-4848-4089-9594-73b9117f4db9" />
+
+### tracet:
+
+<img width="664" height="728" alt="image" src="https://github.com/user-attachments/assets/5a88b963-740d-4b75-a585-ac67fc035f86" />
+
+### nslookup:
+
+<img width="536" height="738" alt="image" src="https://github.com/user-attachments/assets/9256ab16-ce0c-48f6-a50c-3a183fc6a124" />
+
+### getmac:
+
+<img width="646" height="580" alt="image" src="https://github.com/user-attachments/assets/c52fce12-0dc8-4a1b-92a6-8ba494d406ab" />
+
+### hostname:
+
+<img width="826" height="730" alt="image" src="https://github.com/user-attachments/assets/ca62e9a6-5058-43ca-83e2-1e6aa2d9e165" />
+
+### nbtstat:
+
+<img width="829" height="735" alt="image" src="https://github.com/user-attachments/assets/d4149750-916c-49b0-a8de-19115397901b" />
+
+
+### arp:
+
+<img width="958" height="730" alt="image" src="https://github.com/user-attachments/assets/446714d1-9954-4bc8-82ad-98cb8db27496" />
+
+### systeminfo:
+
+<img width="874" height="738" alt="image" src="https://github.com/user-attachments/assets/79b3c189-890b-498e-949e-9ffdb481b002" />
+
+<img width="1014" height="701" alt="image" src="https://github.com/user-attachments/assets/374d63a5-98bb-403c-b524-c9de838ad8e9" />
 
 
 ## Result
